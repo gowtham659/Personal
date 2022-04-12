@@ -11,5 +11,4 @@ s3 = student("sahith",88)
 
 s.display()
 s1.display()
-s2.display()
-s3.display()
+
