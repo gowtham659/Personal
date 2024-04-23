@@ -1,0 +1,93 @@
+MOTIVATION :
+ Nowadays, People are suffering from Kidney stone disease. Kidney stone  disease is when a solid piece of material occurs in the urinary tract. If a  stone grows more than 5mm it can cause severe pain in abdomen.
+ The main motive of this project was to develop a technique which is used to
+detect the stone in the kidney.
+This technique mainly help the doctor to further treat the patient based on
+the size and location of the stone.
+
+OBJECTIVES :
+ To remove the speckle noise using various sharpening and smoothing  filters like gabor , gaussian blur + laplacain ,median blur + laplacian  filters.
+ To increase in contrast of the shadow of the stone and the stone itself using Histogram Equalization.
+To detect the location of the stone in the kidney using watershed  algorithm.
+
+
+Kidney Stones are one of the most common disorders of the urinary tract .
+Kidney stone problem occurs as a common problem to every man and woman ,due to the nature of living .
+A kidney stone termed as renal calculi is a solid piece of material that forms in a kidney when substances that are normally found in the urine become highly concentrated .
+The main objective of our project is to detect the kidney stone from digital ultrasound image of the kidney by performing image processing techniques .
+But the image produced by the ultrasound techniques is not suitable for further processing due to low contrast and the presence of speckle noise .
+Hence the study also examined the effectiveness of various de-noising techniques on the ultrasound image to enhance the quality of the image .
+In this project , we approach 3 filtering techniques  i.e, Gaussian blur + Laplacian , Median blur +Laplacian , Gabor filter .
+Out of these 3 approaches which filter gives the best result is used for further processing .
+After Image Enhancement ,the image is given to Histogram Equalization followed by Image Segmentation .
+In Image Segmentation , we use watershed algorithm for the detection of location of the stone in the kidney .
+Hence our project mainly help the doctor to treat the patient based on the size and location of the stone .
+
+Problem Identification & Proposed Solution:
+Problem Identification:
+	In the present scenario, various Kidney abnormalities such as the  formation of stones, blockage of urine, cysts. Among these, kidney stone  disease is when a solid piece of material occurs in the urinary tract.
+Hence, it’s necessary to have an approach to detect the stone in the kidney
+to avoid further health issues.
+Problem Solution:
+Here, we have to use various denoising techniques on the ultrasound image  to enhance the quality of the image. Further, the enhanced image is used to  locate the exact position of the stone.
+
+PROJECT IMPLEMENTATION DETAILS :
+In Image Enhancement step , we will get the clear and better  quality of the image . Here we had to divide the image into real and complex  plains and then apply the Gaussian Filter in both .
+Then we had to apply Gaussian blur to make Laplacian filter less sensitive to noise .The third attempt is to replace the Gaussian blur with median blur as the latter is more efficient for low level noise like speckle noise, impulse noise .
+In the application of Gabor Filter , the restored image is enriched with optimal resolution in both spatial and frequency domains .
+ 
+Histogram Equalization is a technique for adjusting image intensity values  of pixels in the input image such that the output image contains a uniform  distribution of intensities.
+Image Segmentation partitions an image into distinct regions containing  each pixel with similar attributes. To be useful for image analysis, the regions  should strongly relate to depicted objects.
+
+Subsystems of the Project:
+ In IMAGE ENHANCEMENT , we are using 3 filters for removing noise.
+1.GAUSSIAN BLUR + LAPLACIAN FILTER :
+	 Laplacian Filter is too senstive to noise in the image. Hence we apply  Gaussian Blur to smooth the image and make the Laplacian Filter more  Effective.
+2.MEDIAN BLUR + LAPLACIAN FILTER:
+	Median Blur is one kind of smoothing technique , linear Gaussian filtering.  This technique is effective to remove noise in smooth regions.
+3.GABOR FILTER:
+	The Enhanced image is enriched with optimal resolution in both spatial  and frequency domains using Gabor Filter. This Filter acts as a Band Pass  Filter with local spatial frequency distribution. Image smoothing and  removal of noise is performed using convolution operator.
+
+HISTOGRAM EQUALIZATION:
+	It is a technique for adjusting image intensities to enhance contrast. It  assigns the intensity values of pixels in the input image such that the output  image contains a uniform distribution of intensities. It improves contrast and  obtains a uniform histogram
+
+IMAGE SEGMENTATION:
+WATERSHED Algorithm:
+	Any grayscale image can be viewed as a topographic surface where high  intensity denotes peaks and hills while low intensity denotes valleys.
+We fill the valleys with water of different colors. As the water rises,  depending on the peaks nearby water from different valleys, obviously  with different colors will start to merge.
+To avoid this, we need to build barriers in the area where the water is  mixing. Now, the shadow gets seperated from the stone giving a clear  image of stone.
+
+Mathematical foundation of the project :
+			GAUSSIAN BLUR + LAPLACIAN FILTER:
+The formula for Laplacian Over Gaussian Filter ,We can perform this operation on image based on these functions,
+Gaussian Blur(src, dst, ksize, sigmaX)
+ Laplacian(src, dst, ddepth)  src	: Input Image
+dst	: Output Image
+Ksize	: Size of the kernel
+ddepth : Depth of the destination Image like CV_16S
+sigmaX : Gaussian kernel standard deviation in X direction
+	
+	MEDIAN BLUR + LAPLACIAN FILTER:
+medianBlur(src, dst, ksize)
+Laplacian(src, dst, ddepth)
+src	: Input Image
+dst	: Output Image  ksize : Size of the kernel
+
+GABOR FILTER:
+getGaborKernel(ksize, sigma, theta, lambd, gamma, psi, ktype )
+ksize : Size of the kernel
+sigma : Standard deviation of the Gaussian envelope
+theta: Orientation of the parallel stripes of a Gabor Function
+lambda : Wavelength of the sinusoidal factor
+psi : Phase offset
+ktype : Type of filter coefficients. It can be CV_32F Or CV_64F
+
+ Based on the above filtered images we conclude that Gabor filter  works more efficiently than gaussian blur + laplacian filter and median  blur + laplacian filter.
+ The enhanced image which is the output of gabor filter is applied to  histogram equalization.
+Histogram equalization process leads to an increase in contrast of the  shadow of the stone and the stone itself. Thus, it became more visible.
+
+Conclusion:
+Out of the 3 approaches in filtering, we conclude that  Gabor filter is more effective.
+After the image went under histogram equalization  followed by image segmentation namely watershed.
+The final image gives a distinct location of stone in the  kidney for both ultrasound and CT scan images. Hence,  the stone is detected.
+
